@@ -1,5 +1,8 @@
 import axios from "axios";
 
-export const getAllAlumnos = () => {
-    return axios.get("http://localhost:8000/alumnos/api/v1/alumno/");
-}
+const alumnosApi = axios.create({
+    baseURL: "http://localhost:8000/alumnos/api/v1/alumno/"
+});
+
+export const getAllAlumnos = () => alumnosApi.get('/');
+export const createAlumno = (data) => alumnosApi.post('/', data);

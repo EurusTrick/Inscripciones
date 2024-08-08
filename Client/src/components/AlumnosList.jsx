@@ -1,5 +1,6 @@
 import { useEffect, useState} from "react";
 import { getAllAlumnos } from "../api/alumnos.api";
+import { AlumnoCard } from "./AlumnoCard";
 
 export function AlumnosList() {
     const [alumnos, setAlumnos] = useState([]);
@@ -15,9 +16,7 @@ export function AlumnosList() {
     return (
         <div>
             {alumnos.map((alumno) => (
-                <div key={alumno.id}>
-                    <h1>{alumno.nombre} {alumno.apellidos}</h1>
-        </div>
+                <AlumnoCard key={alumno.id} alumno={alumno} />
     ))}
     </div>
     );
