@@ -13,6 +13,7 @@ function App() {
       <Route path="/" element={<AlumnosPage />} />
       <Route path="/alumnos" element={<AlumnosPage />} />
       <Route path="/alumnos-create" element={<AlumnosFormPage />} />
+      <Route path="/alumnos/:id" element={<AlumnosFormPage />} />
     </Routes>
     </BrowserRouter>
 

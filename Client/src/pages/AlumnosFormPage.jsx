@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
-import { createAlumno } from "../api/alumnos.api";
-import { useNavigate } from "react-router-dom";
+import { createAlumno, deleteAlumno } from "../api/alumnos.api";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function AlumnosFormPage() {
   const { register, handleSubmit, formState : {errors} } = useForm();
   const navigate = useNavigate();
+  const params = useParams();
 
   const onSubmit = handleSubmit(async data => {
     await createAlumno(data);
@@ -27,6 +28,18 @@ export function AlumnosFormPage() {
         <input type="tel" placeholder="Teléfono" {...register("telefono", { required: true })} />
         {errors.telefono && <span>Este campo es requerido</span>}
         <button>Guardar</button>
+
+        {params.id && (
+          <button onClick={async () => {
+            const aceptar = window.confirm("¿Estás seguro de que quieres eliminar este alumno?")
+            if (aceptar) {
+              await deleteAlumno(params.id);
+              navigate("/alumnos");
+            }
+          }}
+          >Eliminar</button>
+        )}
+
       </form>
     </div>
   );

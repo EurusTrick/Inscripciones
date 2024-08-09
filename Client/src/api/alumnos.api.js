@@ -6,3 +6,4 @@ const alumnosApi = axios.create({
 
 export const getAllAlumnos = () => alumnosApi.get('/');
 export const createAlumno = (data) => alumnosApi.post('/', data);
+export const deleteAlumno = (id) => alumnosApi.delete(`/${id}/`);
