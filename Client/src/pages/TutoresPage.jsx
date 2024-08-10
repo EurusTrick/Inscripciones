@@ -1,7 +1,8 @@
+import { TutoresList } from "../components/TutoresList";
+
 export function TutoresPage() {
   return (
-    <div>
-      Tutores
-    </div>
+    <TutoresList />
   );
 }
+

@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AlumnosPage } from './pages/AlumnosPage';
 import { AlumnosFormPage } from './pages/AlumnosFormPage';
-//import { TutoresPage } from './pages/TutoresPage';
-//import { TutoresFormPage } from './pages/TutoresFormPage';
+import { TutoresPage } from './pages/TutoresPage';
+import { TutoresFormPage } from './pages/TutoresFormPage';
 import { Home } from './pages/Home';
 import { Navigation } from './components/Navigation';
 
@@ -17,6 +17,8 @@ function App() {
       <Route path="/alumnos" element={<AlumnosPage />} />
       <Route path="/alumnos-create" element={<AlumnosFormPage />} />
       <Route path="/alumnos/:id" element={<AlumnosFormPage />} />
+      <Route path="/tutores" element={<TutoresPage />} />
+      <Route path="/tutores-create" element={<TutoresFormPage />} />
     </Routes>
 
     </BrowserRouter>

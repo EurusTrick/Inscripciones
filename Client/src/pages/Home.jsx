@@ -5,10 +5,10 @@ export function Home() {
     return (
         <div>
             <h1>Bienvenido al Home</h1>
-            <Link to="/alumnos">
-            <h1>Alumnos</h1>
-            </Link>
+            <Link to="/alumnos"><h1>Alumnos</h1></Link>
             <Link to="/alumnos-create">Agregar Alumno</Link>
+            <Link to="/tutores"><h1>Tutores</h1></Link>
+            <Link to="/tutores-create">Agregar Tutor</Link>
         </div>
     );
 }
