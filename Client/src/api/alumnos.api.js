@@ -19,3 +19,4 @@ const tutoresApi = axios.create({
 
 export const getAllTutores = () => tutoresApi.get('/');
 export const createTutor = (data) => tutoresApi.post('/', data);
+export const deleteTutor = (id) => tutoresApi.delete(`/${id}/`);
