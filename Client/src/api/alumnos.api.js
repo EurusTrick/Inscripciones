@@ -21,4 +21,4 @@ export const getAllTutores = () => tutoresApi.get('/');
 export const getTutor = (id) => tutoresApi.get(`/${id}/`);
 export const createTutor = (data) => tutoresApi.post('/', data);
 export const deleteTutor = (id) => tutoresApi.delete(`/${id}/`);
-export const updateTutor = (id, data) => tutoresApi.put(`/${id}/`, data);
+export const updateTutor = (id, data) => tutoresApi.put(`/${id}/`, data); 
