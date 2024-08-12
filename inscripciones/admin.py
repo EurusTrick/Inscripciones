@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Alumno
-from .models import PadreTutor
+from .models import Alumno, PadreTutor, Pago
+
 
 admin.site.register(Alumno)
 admin.site.register(PadreTutor)
+admin.site.register(Pago)
 

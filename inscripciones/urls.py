@@ -7,6 +7,7 @@ from inscripciones import views
 router = routers.DefaultRouter()
 router.register(r'alumno', views.AlumnoView, 'alumno')
 router.register(r'padretutor', views.PadreTutorView, 'padretutor')
+router.register(r'pago', views.PagoView, 'pago')
 
 urlpatterns = [
     path('api/v1/', include(router.urls)),

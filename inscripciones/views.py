@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .serializer import AlumnoSerializer, PadreTutorSerializer
-from .models import Alumno, PadreTutor
+from .serializer import AlumnoSerializer, PadreTutorSerializer, PagoSerializer
+from .models import Alumno, PadreTutor, Pago
 
 class AlumnoView(viewsets.ModelViewSet):
     serializer_class = AlumnoSerializer
@@ -9,3 +9,8 @@ class AlumnoView(viewsets.ModelViewSet):
 class PadreTutorView(viewsets.ModelViewSet):
     serializer_class = PadreTutorSerializer
     queryset = PadreTutor.objects.all()
+    
+class PagoView(viewsets.ModelViewSet):
+    serializer_class = PagoSerializer
+    queryset = Pago.objects.all()
+

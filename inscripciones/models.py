@@ -21,6 +21,13 @@ class PadreTutor(models.Model):
         return self.nombre + ' ' + self.apellidos
     
 
+class Pago(models.Model):
+    alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE, related_name='pagos')
+    fecha_pago = models.DateField()
+    monto = models.DecimalField(max_digits=10, decimal_places=2)
+    metodo_pago = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.alumno.apellidos + ' ' + self.alumno.nombre + ' - ' + str(self.fecha_pago)
 
     
