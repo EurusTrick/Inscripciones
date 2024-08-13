@@ -9,6 +9,8 @@ export function Home() {
             <Link to="/alumnos-create">Agregar Alumno</Link>
             <Link to="/tutores"><h1>Tutores</h1></Link>
             <Link to="/tutores-create">Agregar Tutor</Link>
+            <Link to="/pagos"><h1>Pagos</h1></Link>
+            <Link to="/pagos-create">Agregar Pago</Link>
         </div>
     );
 }

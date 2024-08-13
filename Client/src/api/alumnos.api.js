@@ -22,3 +22,10 @@ export const getTutor = (id) => tutoresApi.get(`/${id}/`);
 export const createTutor = (data) => tutoresApi.post('/', data);
 export const deleteTutor = (id) => tutoresApi.delete(`/${id}/`);
 export const updateTutor = (id, data) => tutoresApi.put(`/${id}/`, data); 
+
+//Pagos API
+const pagosApi = axios.create({
+    baseURL: "http://localhost:8000/pagos/api/v1/pago"
+});
+
+export const getAllPagos = () => pagosApi.get('/');

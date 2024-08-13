@@ -3,6 +3,8 @@ import { AlumnosPage } from './pages/AlumnosPage';
 import { AlumnosFormPage } from './pages/AlumnosFormPage';
 import { TutoresPage } from './pages/TutoresPage';
 import { TutoresFormPage } from './pages/TutoresFormPage';
+import { PagosPage } from './pages/PagosPage';
+import { PagosFormPage } from './pages/PagosFormPage';
 import { Home } from './pages/Home';
 import { Navigation } from './components/Navigation';
 
@@ -20,6 +22,9 @@ function App() {
       <Route path="/tutores" element={<TutoresPage />} />
       <Route path="/tutores-create" element={<TutoresFormPage />} />
       <Route path="/tutores/:id" element={<TutoresFormPage />} />
+      <Route path="/pagos" element={<PagosPage />} />
+      <Route path="/pagos-create" element={<PagosFormPage />} />
+
     </Routes>
 
     </BrowserRouter>
@@ -27,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 

@@ -14,6 +14,7 @@ class PadreTutorSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PagoSerializer(serializers.ModelSerializer):
+    alumno = AlumnoSerializer(read_only=True)
     class Meta:
         model = Pago
         fields = '__all__'
