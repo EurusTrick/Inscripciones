@@ -24,6 +24,7 @@ function App() {
       <Route path="/tutores/:id" element={<TutoresFormPage />} />
       <Route path="/pagos" element={<PagosPage />} />
       <Route path="/pagos-create" element={<PagosFormPage />} />
+      <Route path="/pagos/:id" element={<PagosFormPage/>}/>
 
     </Routes>
 

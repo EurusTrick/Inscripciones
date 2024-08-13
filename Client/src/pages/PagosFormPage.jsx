@@ -1,15 +1,16 @@
 import { useForm } from "react-hook-form"
 import { AlumnosSelect } from "../components/AlumnosSelect";
-import { createPago } from "../api/alumnos.api";
-import { useNavigate } from "react-router-dom";
+import { createPago, deletePago } from "../api/alumnos.api";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function PagosFormPage() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
+    const params = useParams();
 
     const onSubmit = handleSubmit(async (data) => {
         await createPago(data);
-        navigate ("/pagos");
+        navigate("/pagos");
     });
 
     return (
@@ -30,7 +31,19 @@ export function PagosFormPage() {
                 {errors.metodo_pago && <span>Este campo es requerido</span>}
 
                 <button type="submit">Guardar Pago</button>
+
+                {params.id && (
+                    <button
+                        onClick={async () => {
+                            const acepted = window.confirm("¿Estás seguro de eliminar este pago?");
+                            if (acepted) {
+                                await deletePago(params.id);
+                                navigate("/pagos");
+                            }
+                        }}
+                    >
+                        Delete</button>)}
             </form>
         </div>
-    )
+    );  
 }

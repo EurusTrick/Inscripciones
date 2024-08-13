@@ -11,6 +11,7 @@ export function Home() {
             <Link to="/tutores-create">Agregar Tutor</Link>
             <Link to="/pagos"><h1>Pagos</h1></Link>
             <Link to="/pagos-create">Agregar Pago</Link>
+            
         </div>
     );
 }

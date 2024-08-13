@@ -30,3 +30,4 @@ const pagosApi = axios.create({
 
 export const getAllPagos = () => pagosApi.get('/');
 export const createPago = (data) => pagosApi.post('/', data);
+export const deletePago = (id) => pagosApi.delete(`/${id}/`);
