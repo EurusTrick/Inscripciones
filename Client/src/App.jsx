@@ -29,6 +29,7 @@ function App() {
       <Route path="/pagos/:id" element={<PagosFormPage/>}/>
       <Route path="/inscripciones" element={<InscripcionesPage />} />
       <Route path="/inscripciones-create" element={<InscripcionesFormPage />} />
+      <Route path="/inscripciones/:id" element={<InscripcionesFormPage />} />
 
     </Routes>
 
