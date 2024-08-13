@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Alumno
 from .models import PadreTutor
 from .models import Pago
+from .models import Inscripcion
 
 class AlumnoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,6 +24,25 @@ class PagoSerializer(serializers.ModelSerializer):
     
     def get_alumno_details(self, obj):
         return AlumnoSerializer(obj.alumno).data
+
+class InscripcionSerializer(serializers.ModelSerializer):
+    alumno = serializers.PrimaryKeyRelatedField(queryset=Alumno.objects.all())
+    alumno_details = serializers.SerializerMethodField()
+    pago = serializers.PrimaryKeyRelatedField(queryset=Pago.objects.all())
+    pago_details = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Inscripcion
+        fields = '__all__'
+
+    def get_alumno_details(self, obj):
+        return AlumnoSerializer(obj.alumno).data
+
+    def get_pago_details(self, obj):
+        return PagoSerializer(obj.pago).data
+    
+
+    
 
     
 

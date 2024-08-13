@@ -30,4 +30,14 @@ class Pago(models.Model):
     def __str__(self):
         return self.alumno.apellidos + ' ' + self.alumno.nombre + ' - ' + str(self.fecha_pago)
 
-    
+
+class Inscripcion(models.Model):
+    alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE, related_name='inscripciones')
+    pago = models.ForeignKey(Pago, on_delete=models.CASCADE)
+    factura = models.BooleanField(default=False)
+    curso = models.CharField(max_length=50)
+    tipo_inscripcion = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.alumno.apellidos + ' ' + self.alumno.nombre + ' - ' + self.curso
+
