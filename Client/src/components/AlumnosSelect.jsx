@@ -26,4 +26,4 @@ export function AlumnosSelect({register, errors}) {
             {errors.alumno && <span>Este campo es requerido</span>}
         </div>
     );
-}
+} 
