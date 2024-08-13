@@ -33,3 +33,10 @@ export const getPago = (id) => pagosApi.get(`/${id}/`);
 export const createPago = (data) => pagosApi.post('/', data);
 export const deletePago = (id) => pagosApi.delete(`/${id}/`);
 export const updatePago = (id, data) => pagosApi.put(`/${id}/`, data);
+
+//Inscripciones API
+const inscripcionesApi = axios.create({
+    baseURL: "http://localhost:8000/inscripciones/api/v1/inscripcion"
+});
+
+export const getAllInscripciones = () => inscripcionesApi.get('/');
