@@ -8,7 +8,6 @@ export function PagosList() {
     useEffect(() => {
         async function loadPagos() {
             const res = await getAllPagos();
-            console.log(res.data);
             setPagos(res.data);
         } loadPagos();
     }, [])
