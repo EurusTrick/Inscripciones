@@ -10,9 +10,15 @@ class AlumnoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PadreTutorSerializer(serializers.ModelSerializer):
+    alumno = serializers.PrimaryKeyRelatedField(queryset=Alumno.objects.all())
+    alumno_details = serializers.SerializerMethodField()
+
     class Meta:
         model = PadreTutor
         fields = '__all__'
+    
+    def get_alumno_details(self, obj):
+        return AlumnoSerializer(obj.alumno).data
 
 class PagoSerializer(serializers.ModelSerializer):
     alumno = serializers.PrimaryKeyRelatedField(queryset=Alumno.objects.all())

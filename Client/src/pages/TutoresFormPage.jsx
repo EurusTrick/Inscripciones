@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form"
 import { createTutor, deleteTutor, updateTutor, getTutor } from "../api/alumnos.api";
 import { useNavigate, useParams } from "react-router-dom";
+import { AlumnosSelect } from "../components/AlumnosSelect";
 
 export function TutoresFormPage() {
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
@@ -25,6 +26,7 @@ export function TutoresFormPage() {
                 setValue("apellidos", res.data.apellidos)
                 setValue("email", res.data.email)
                 setValue("telefono", res.data.telefono)
+                setValue("alumno", res.data.alumno)
 
             }
         }
@@ -35,6 +37,8 @@ export function TutoresFormPage() {
     return (
         <div>
             <form onSubmit={onSubmit}>
+                <AlumnosSelect register={register} errors={errors} />
+
                 <input type="text" placeholder="Nombre" {...register("nombre", { required: true })} />
                 {errors.nombre && <span>Este campo es requerido</span>}
                 <input type="text" placeholder="Apellidos" {...register("apellidos", { required: true })} />

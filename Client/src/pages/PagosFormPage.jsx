@@ -1,4 +1,4 @@
-import { set, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { useEffect } from "react"
 import { AlumnosSelect } from "../components/AlumnosSelect";
 import { createPago, deletePago, updatePago, getPago } from "../api/alumnos.api";

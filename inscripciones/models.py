@@ -16,6 +16,7 @@ class PadreTutor(models.Model):
     apellidos = models.CharField(max_length=50)
     email = models.EmailField()
     telefono = models.CharField(max_length=10)
+    alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE, related_name='padres', null=True, blank=True)
 
     def __str__(self):
         return self.nombre + ' ' + self.apellidos

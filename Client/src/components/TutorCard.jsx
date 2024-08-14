@@ -11,6 +11,7 @@ export function TutorCard({ tutor }) {
             }}
         >
             <h1>{tutor.nombre} {tutor.apellidos}</h1>
+            <p>Tutor de: {tutor.alumno_details.apellidos} {tutor.alumno_details.nombre}</p>
             <hr />
         </div>
     )
