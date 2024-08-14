@@ -40,5 +40,9 @@ const inscripcionesApi = axios.create({
 });
 
 export const getAllInscripciones = () => inscripcionesApi.get('/');
+export const getInscripcion = (id) => inscripcionesApi.get(`/${id}/`);
 export const createInscripcion = (data) => inscripcionesApi.post('/', data);
 export const deleteInscripcion = (id) => inscripcionesApi.delete(`/${id}/`);
+export const updateInscripcion = (id, data) => inscripcionesApi.put(`/${id}/`, data);
+
+

@@ -1,19 +1,37 @@
 import { useForm } from "react-hook-form"
 import { AlumnosSelect } from "../components/AlumnosSelect";
 import { PagosSelect } from "../components/PagosSelect";
-import { createInscripcion, deleteInscripcion } from "../api/alumnos.api";
+import { createInscripcion, deleteInscripcion, updateInscripcion, getInscripcion} from "../api/alumnos.api";
 import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 export function InscripcionesFormPage() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm();
     const navigate = useNavigate();
     const params = useParams();
 
     const onSubmit = handleSubmit(async data => {
-        await createInscripcion(data);
+        if (params.id) {
+            updateInscripcion(params.id, data);
+        } else {
+            await createInscripcion(data);
+        }
         navigate("/inscripciones");
     });
 
+
+    useEffect(() => {
+        async function loadInscripcion(){
+            if (params.id) {
+            const res = await getInscripcion(params.id);
+            setValue("alumno", res.data.alumno);
+            setValue("pago", res.data.pago);
+            setValue("factura", res.data.factura);
+            setValue("curso", res.data.curso);
+            setValue("tipo_inscripcion", res.data.tipo_inscripcion);
+            }
+        } loadInscripcion();
+    }, []);
 
 
 
