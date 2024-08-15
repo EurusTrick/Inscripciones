@@ -39,14 +39,22 @@ export function TutoresFormPage() {
             <form onSubmit={onSubmit}>
                 <AlumnosSelect register={register} errors={errors} />
 
-                <input type="text" placeholder="Nombre" {...register("nombre", { required: true })} />
+                <label>Nombre</label>
+                <input type="text" {...register("nombre", { required: true })} />
                 {errors.nombre && <span>Este campo es requerido</span>}
-                <input type="text" placeholder="Apellidos" {...register("apellidos", { required: true })} />
+
+                <label>Apellidos</label>
+                <input type="text" {...register("apellidos", { required: true })} />
                 {errors.apellidos && <span>Este campo es requerido</span>}
-                <input type="text" placeholder="email" {...register("email", { required: true })} />
+
+                <label>Email</label>
+                <input type="text" {...register("email", { required: true })} />
                 {errors.email && <span>Este campo es requerido</span>}
-                <input type="text" placeholder="Teléfono" {...register("telefono", { required: true })} />
+
+                <label>Teléfono</label>
+                <input type="text" {...register("telefono", { required: true })} />
                 {errors.telefono && <span>Este campo es requerido</span>}
+                
                 <button>Guardar</button>
 
                 {params.id && (

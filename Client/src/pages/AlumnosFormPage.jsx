@@ -36,18 +36,30 @@ export function AlumnosFormPage() {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <input type="text" placeholder="Nombre" {...register("nombre", { required: true })} />
+        <label>Nombre</label>
+        <input type="text" {...register("nombre", { required: true })} />
         {errors.apellidos && <span>Este campo es requerido</span>}
-        <input type="text" placeholder="Apellidos" {...register("apellidos", { required: true })} />
+        
+        <label>Apellidos</label>
+        <input type="text" {...register("apellidos", { required: true })} />
         {errors.apellidos && <span>Este campo es requerido</span>}
-        <input type="text" placeholder="Fecha de nacimiento 'aaaa-mm-dd'" {...register("fecha_nacimiento", { required: true })} />
+
+        <label>Fecha de nacimiento</label>
+        <input type="date" {...register("fecha_nacimiento", { required: true })} />
         {errors.fechaNacimiento && <span>Este campo es requerido</span>}
-        <input rows="3" placeholder="Dirección" {...register("direccion", { required: true })} />
+
+        <label>Dirección</label>
+        <input rows="3"  {...register("direccion", { required: true })} />
         {errors.direccion && <span>Este campo es requerido</span>}
-        <input type="email" placeholder="Email" {...register("email", { required: true })} />
+        
+        <label>Email</label>
+        <input type="email" {...register("email", { required: true })} />
         {errors.email && <span>Este campo es requerido</span>}
-        <input type="tel" placeholder="Teléfono" {...register("telefono", { required: true })} />
+        
+        <label>Teléfono</label>
+        <input type="tel" {...register("telefono", { required: true })} />
         {errors.telefono && <span>Este campo es requerido</span>}
+        
         <button>Guardar</button>
 
         {params.id && (
