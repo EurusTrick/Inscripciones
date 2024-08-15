@@ -19,7 +19,7 @@ class PadreTutorSerializer(serializers.ModelSerializer):
     
     def get_alumno_details(self, obj):
         return AlumnoSerializer(obj.alumno).data
-
+ 
 class PagoSerializer(serializers.ModelSerializer):
     alumno = serializers.PrimaryKeyRelatedField(queryset=Alumno.objects.all())
     alumno_details = serializers.SerializerMethodField()
