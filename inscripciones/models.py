@@ -5,7 +5,7 @@ class Alumno(models.Model):
     apellidos = models.CharField(max_length=50)
     fecha_nacimiento = models.DateField()
     direccion = models.TextField()
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     telefono = models.CharField(max_length=10)
 
     def __str__(self):
