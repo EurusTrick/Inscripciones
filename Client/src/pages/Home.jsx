@@ -25,8 +25,6 @@ export function Home() {
             <Link to="/pagos"><h1>Pagos</h1></Link>
             <Link to="/inscripciones"><h1>Inscripciones</h1></Link>
             </div>
-
-            
             
         </div>
     );

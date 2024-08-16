@@ -5,7 +5,8 @@ export function AlumnoCard({ alumno }) {
     const navigate = useNavigate();
 
     return (
-        <div style={{ background: "Black" }}
+        <div 
+            className="bg-zinc-800 p-3 hover:bg-zinc-700 cursor-pointer"
 
             onClick={() => {
                 navigate(`/alumnos/${alumno.id}`)
@@ -13,7 +14,6 @@ export function AlumnoCard({ alumno }) {
             }
         >
             <h1>{alumno.nombre} {alumno.apellidos}</h1>
-            <hr />
         </div>
 
     );

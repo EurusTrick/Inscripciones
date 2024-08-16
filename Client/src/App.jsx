@@ -9,11 +9,13 @@ import { PagosFormPage } from './pages/PagosFormPage';
 import { InscripcionesPage } from './pages/InscripcionesPage';
 import { InscripcionesFormPage } from './pages/InscripcionesFormPage';
 import { Navigation } from './components/Navigation';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
   return (
     <BrowserRouter> 
+    <div className="container mx-auto">
 
     <Navigation />
     <Routes>
@@ -30,9 +32,11 @@ function App() {
       <Route path="/inscripciones" element={<InscripcionesPage />} />
       <Route path="/inscripciones-create" element={<InscripcionesFormPage />} />
       <Route path="/inscripciones/:id" element={<InscripcionesFormPage />} />
-
+    
     </Routes>
+    <Toaster />
 
+    </div>
     </BrowserRouter>
 
   );

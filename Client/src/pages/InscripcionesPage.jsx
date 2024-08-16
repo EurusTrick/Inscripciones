@@ -1,4 +1,5 @@
 import { InscripcionesList } from "../components/InscripcionesList"
+import { Link } from "react-router-dom";
 
 export function InscripcionesPage() {
     return (
