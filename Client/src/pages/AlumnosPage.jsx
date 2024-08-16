@@ -12,7 +12,6 @@ export function AlumnosPage() {
           Agregar Alumno
         </Link>
       </div>
-
       <h1 className="text-center text-2xl text-blue-900 mb-4">Lista de alumnos</h1>
       <AlumnosList />
     </div>

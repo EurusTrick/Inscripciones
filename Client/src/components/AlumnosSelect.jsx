@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllAlumnos } from "../api/alumnos.api";
 
-export function AlumnosSelect({register, errors}) {
+export function AlumnosSelect({ register, errors }) {
     const [alumnos, setAlumnos] = useState([]);
 
     useEffect(() => {
@@ -13,9 +13,12 @@ export function AlumnosSelect({register, errors}) {
     }, []);
 
     return (
-        <div>
-            <label>Alumno</label>
-            <select {...register("alumno", { required: true })}>
+        <div className="mb-4">
+            <label className="block text-blue-900 font-semibold mb-1">Alumno</label>
+            <select
+                {...register("alumno", { required: true })}
+                className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full"
+            >
                 <option value="">Selecciona un alumno</option>
                 {alumnos.map(alumno => (
                     <option key={alumno.id} value={alumno.id}>
@@ -23,7 +26,7 @@ export function AlumnosSelect({register, errors}) {
                     </option>
                 ))}
             </select>
-            {errors.alumno && <span>Este campo es requerido</span>}
+            {errors.alumno && <span className="text-red-500">Este campo es requerido</span>}
         </div>
     );
-} 
+}

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { createTutor, deleteTutor, updateTutor, getTutor } from "../api/alumnos.api";
 import { useNavigate, useParams } from "react-router-dom";
 import { AlumnosSelect } from "../components/AlumnosSelect";
+import { toast } from "react-hot-toast";
 
 export function TutoresFormPage() {
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
@@ -11,9 +12,21 @@ export function TutoresFormPage() {
 
     const onSubmit = handleSubmit(async data => {
         if (params.id) {
-            await updateTutor (params.id, data)
+            await updateTutor(params.id, data);
+            toast.success("Tutor actualizado correctamente", {
+                style: {
+                    backgroundColor: "#0033cc", //Azul rey
+                    color: "#ffffff", //Blanco
+                }
+            });
         } else {
             await createTutor(data);
+            toast.success("Tutor creado correctamente", {
+                style: {
+                    backgroundColor: "#0033cc", //Azul rey
+                    color: "#ffffff", //Blanco
+                }
+            });
         }
         navigate("/tutores");
     });
@@ -35,40 +48,58 @@ export function TutoresFormPage() {
 
 
     return (
-        <div>
+        <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
             <form onSubmit={onSubmit}>
                 <AlumnosSelect register={register} errors={errors} />
 
-                <label>Nombre</label>
-                <input type="text" {...register("nombre", { required: true })} />
-                {errors.nombre && <span>Este campo es requerido</span>}
+                <label className="block text-blue-900 front-semibold mb-1">Nombre</label>
+                <input type="text" {...register("nombre", { required: true })}
+                    className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
+                {errors.nombre && <span className="text-red-500">Este campo es requerido</span>}
 
-                <label>Apellidos</label>
-                <input type="text" {...register("apellidos", { required: true })} />
-                {errors.apellidos && <span>Este campo es requerido</span>}
+                <label className="block text-blue-900 front-semibold mb-1">Apellidos</label>
+                <input type="text" {...register("apellidos", { required: true })}
+                    className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
+                {errors.apellidos && <span className="text-red-500">Este campo es requerido</span>}
 
-                <label>Email</label>
-                <input type="text" {...register("email", { required: true })} />
-                {errors.email && <span>Este campo es requerido</span>}
+                <label className="block text-blue-900 front-semibold mb-1">Email</label>
+                <input type="text" {...register("email", { required: true })}
+                    className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
+                {errors.email && <span className="text-red-500">Este campo es requerido</span>}
 
-                <label>Teléfono</label>
-                <input type="text" {...register("telefono", { required: true })} />
-                {errors.telefono && <span>Este campo es requerido</span>}
-                
-                <button>Guardar</button>
+                <label className="block text-blue-900 front-semibold mb-1">Teléfono</label>
+                <input type="text" {...register("telefono", { required: true })}
+                    className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
+                {errors.telefono && <span className="text-red-500">Este campo es requerido</span>}
 
-                {params.id && (
+                <div className="flex justify-between mt-4">
+                    {params.id && (
+                        <button
+                            className="bg-red-500 text-white p-2 rounded-lg w-48"
+                            onClick={async () => {
+                                const acepted = window.confirm("¿Estás seguro de que quieres eliminar este tutor?")
+                                if (acepted) {
+                                    await deleteTutor(params.id)
+                                    toast.success("Tutor eliminado correctamente", {
+                                        style: {
+                                            backgroundColor: "#0033cc", //Azul rey
+                                            color: "#ffffff", //Blanco
+                                        }
+                                    })
+                                    navigate("/tutores")
+                                }
+                            }}
+                        >
+                            Eliminar
+                        </button>
+                    )}
                     <button
-                        onClick={async () => {
-                            const acepted = window.confirm("¿Estás seguro de que quieres eliminar este tutor?")
-                            if (acepted) {
-                                await deleteTutor(params.id)
-                                navigate("/tutores")
-                            }
-                        }}
+                        className="bg-blue-900 text-white p-2 rounded-lg w-48 ml-auto"
+                        type="submit"
                     >
-                        Eliminar</button>
-                )}
+                        Guardar
+                    </button>
+                </div>
             </form>
         </div>
     );
