@@ -13,17 +13,20 @@ export function PagosSelect({ register, errors }) {
     }, []);
 
     return (
-        <div>
-            <label>Pago</label>
-            <select {...register("pago", { required: true })}>
+        <div className="mb-4">
+            <label className="block text-blue-900 font-semibold mb-1">Pago</label>
+            <select
+                {...register("pago", { required: true })}
+                className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg w-full"
+            >
                 <option value="">Selecciona un pago</option>
                 {pagos.map(pago => (
                     <option key={pago.id} value={pago.id}>
-                     {pago.monto} - {pago.alumno_details.nombre} {pago.alumno_details.apellidos}
+                        {pago.monto} - {pago.alumno_details.nombre} {pago.alumno_details.apellidos}
                     </option>
                 ))}
             </select>
-            {errors.pago && <span>Este campo es requerido</span>}
+            {errors.pago && <span className="text-red-500">Este campo es requerido</span>}
         </div>
     );
 }
