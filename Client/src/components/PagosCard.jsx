@@ -4,7 +4,7 @@ export function PagosCard({ pago }) {
     const navigate = useNavigate();
     
     return (
-        <div className="bg-white text-blue-900 p-4 hover:bg-gray-100 cursor-pointer rounded-lg shadow-md"
+        <div className="bg-white text-blue-900 p-4 hover:bg-gray-100 cursor-pointer rounded-lg shadow-md border-b border-gray-300"
         onClick={() =>{
             navigate(`/pagos/${pago.id}`)
         }}
