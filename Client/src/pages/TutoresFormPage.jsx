@@ -52,22 +52,22 @@ export function TutoresFormPage() {
             <form onSubmit={onSubmit}>
                 <AlumnosSelect register={register} errors={errors} />
 
-                <label className="block text-blue-900 front-semibold mb-1">Nombre</label>
+                <label className="block text-blue-900 front-semibold mb-1">Nombre(s) del tutor</label>
                 <input type="text" {...register("nombre", { required: true })}
                     className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
                 {errors.nombre && <span className="text-red-500">Este campo es requerido</span>}
 
-                <label className="block text-blue-900 front-semibold mb-1">Apellidos</label>
+                <label className="block text-blue-900 front-semibold mb-1">Apellidos del tutor</label>
                 <input type="text" {...register("apellidos", { required: true })}
                     className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
                 {errors.apellidos && <span className="text-red-500">Este campo es requerido</span>}
 
-                <label className="block text-blue-900 front-semibold mb-1">Email</label>
+                <label className="block text-blue-900 front-semibold mb-1">Email del tutor</label>
                 <input type="text" {...register("email", { required: true })}
                     className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
                 {errors.email && <span className="text-red-500">Este campo es requerido</span>}
 
-                <label className="block text-blue-900 front-semibold mb-1">Teléfono</label>
+                <label className="block text-blue-900 front-semibold mb-1">Teléfono del tutor</label>
                 <input type="text" {...register("telefono", { required: true })}
                     className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
                 {errors.telefono && <span className="text-red-500">Este campo es requerido</span>}
@@ -97,7 +97,7 @@ export function TutoresFormPage() {
                         className="bg-blue-900 text-white p-2 rounded-lg w-48 ml-auto"
                         type="submit"
                     >
-                        Guardar
+                        Guardar Padre/Tutor
                     </button>
                 </div>
             </form>

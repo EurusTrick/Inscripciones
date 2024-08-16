@@ -104,7 +104,7 @@ export function AlumnosFormPage() {
             className="bg-blue-900 text-white p-2 rounded-lg w-48 ml-auto"
             type="submit"
           >
-            Guardar
+            Guardar Alumno
           </button>
         </div>
       </form>
