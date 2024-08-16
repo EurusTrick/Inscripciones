@@ -15,7 +15,7 @@ import { Toaster } from 'react-hot-toast';
 function App() {
   return (
     <BrowserRouter> 
-    <div className="container mx-auto">
+    <div className="container mx-auto pb-16">
 
     <Navigation />
     <Routes>

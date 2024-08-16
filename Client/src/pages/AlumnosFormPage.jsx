@@ -11,19 +11,19 @@ export function AlumnosFormPage() {
 
   const onSubmit = handleSubmit(async data => {
     if (params.id) {
-      await updateAlumno(params.id, data)
+      await updateAlumno(params.id, data);
       toast.success("Alumno actualizado correctamente", {
         style: {
-          background: "#001f3f",
-          color: "#fff"
+          background: "#0033cc", // Azul rey
+          color: "#ffffff" // Blanco
         }
       });
     } else {
       await createAlumno(data);
       toast.success("Alumno creado correctamente", {
         style: {
-          background: "#001f3f",
-          color: "#fff"
+          background: "#0033cc", // Azul rey
+          color: "#ffffff" // Blanco
         }
       });
     }
@@ -43,72 +43,71 @@ export function AlumnosFormPage() {
       }
     }
     loadTask();
-  }, []);
-
+  }, [params.id, setValue]);
 
   return (
-    <div className="max-w-xl mx-auto">
+    <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
       <form onSubmit={onSubmit}>
-
-        <label>Nombre</label>
+        <label className="block text-blue-900 font-semibold mb-1">Nombre</label>
         <input type="text" {...register("nombre", { required: true })}
-          className="bg-zinc-700 p-2 rounded-lg block w-full mb-3" />
-        {errors.apellidos && <span>Este campo es requerido</span>}
+          className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
+        {errors.nombre && <span className="text-red-500">Este campo es requerido</span>}
 
-        <label>Apellidos</label>
+        <label className="block text-blue-900 font-semibold mb-1">Apellidos</label>
         <input type="text" {...register("apellidos", { required: true })}
-          className="bg-zinc-700 p-2 rounded-lg block w-full mb-3" />
-        {errors.apellidos && <span>Este campo es requerido</span>}
+          className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
+        {errors.apellidos && <span className="text-red-500">Este campo es requerido</span>}
 
-        <label>Fecha de nacimiento</label>
+        <label className="block text-blue-900 font-semibold mb-1">Fecha de nacimiento</label>
         <input type="date" {...register("fecha_nacimiento", { required: true })}
-          className="bg-zinc-700 p-2 rounded-lg block w-full mb-3" />
-        {errors.fechaNacimiento && <span>Este campo es requerido</span>}
+          className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
+        {errors.fecha_nacimiento && <span className="text-red-500">Este campo es requerido</span>}
 
-        <label>Dirección</label>
-        <input rows="3"  {...register("direccion", { required: true })}
-          className="bg-zinc-700 p-2 rounded-lg block w-full mb-3" />
-        {errors.direccion && <span>Este campo es requerido</span>}
+        <label className="block text-blue-900 font-semibold mb-1">Dirección</label>
+        <input rows="3" {...register("direccion", { required: true })}
+          className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
+        {errors.direccion && <span className="text-red-500">Este campo es requerido</span>}
 
-        <label>Email</label>
+        <label className="block text-blue-900 font-semibold mb-1">Email</label>
         <input type="email" {...register("email", { required: true })}
-          className="bg-zinc-700 p-2 rounded-lg block w-full mb-3" />
-        {errors.email && <span>Este campo es requerido</span>}
+          className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
+        {errors.email && <span className="text-red-500">Este campo es requerido</span>}
 
-        <label>Teléfono</label>
+        <label className="block text-blue-900 font-semibold mb-1">Teléfono</label>
         <input type="tel" {...register("telefono", { required: true })}
-          className="bg-zinc-700 p-2 rounded-lg block w-full mb-3" />
-        {errors.telefono && <span>Este campo es requerido</span>}
+          className="bg-white border border-gray-300 text-blue-900 p-2 rounded-lg block w-full mb-3" />
+        {errors.telefono && <span className="text-red-500">Este campo es requerido</span>}
 
-        <div className="flex justify-between mt-3">
-        {params.id && (
+        <div className="flex justify-between mt-4">
+          {params.id && (
+            <button
+              className="bg-red-500 text-white p-2 rounded-lg w-48"
+              onClick={async () => {
+                const aceptar = window.confirm("¿Estás seguro de que quieres eliminar este alumno?");
+                if (aceptar) {
+                  await deleteAlumno(params.id);
+                  toast.success("Alumno eliminado correctamente", {
+                    style: {
+                      background: "#0033cc", // Azul rey
+                      color: "#ffffff" // Blanco
+                    }
+                  });
+                  navigate("/alumnos");
+                }
+              }}
+            >
+              Eliminar
+            </button>
+          )}
+
           <button
-            className="bg-red-500 p-2 rounded-lg w-48"
-            onClick={async () => {
-              const aceptar = window.confirm("¿Estás seguro de que quieres eliminar este alumno?")
-              if (aceptar) {
-                await deleteAlumno(params.id);
-                toast.success("Alumno eliminado correctamente", {
-                  style: {
-                    background: "#001f3f",
-                    color: "#fff"
-                  }
-                });
-                navigate("/alumnos");
-              }
-            }}
-          >Eliminar</button>
-        )}
-
-        <button
-          className="bg-indigo-500 p-2 rounded-lg w-48 ml-auto"
-        >Guardar</button>
-
+            className="bg-blue-900 text-white p-2 rounded-lg w-48 ml-auto"
+            type="submit"
+          >
+            Guardar
+          </button>
         </div>
-
-        
       </form>
     </div>
   );
 }
-
