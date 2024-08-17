@@ -1,5 +1,7 @@
 import { AlumnosList } from "../components/AlumnosList";
 import { Link } from "react-router-dom";
+import {FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faPlus} from "@fortawesome/free-solid-svg-icons"; 
 
 export function AlumnosPage() {
   return (
@@ -9,6 +11,7 @@ export function AlumnosPage() {
           to="/alumnos-create"
           className="bg-blue-900 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-800"
         >
+          <FontAwesomeIcon icon={faPlus} className="mr-2" />
           Agregar Alumno
         </Link>
       </div>

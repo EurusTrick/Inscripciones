@@ -4,6 +4,8 @@ import { AlumnosSelect } from "../components/AlumnosSelect";
 import { createPago, deletePago, updatePago, getPago } from "../api/alumnos.api";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faSave } from "@fortawesome/free-solid-svg-icons";
 
 
 export function PagosFormPage() {
@@ -86,10 +88,13 @@ export function PagosFormPage() {
                             }
                         }}
                     >
-                        Delete</button>)}
+                        <FontAwesomeIcon icon={faTrash} className="mr-2" />
+                        Eliminar pago</button>)}
                 <button 
                 className="bg-blue-900 text-white p-2 rounded-lg w-48 ml-auto"
-                type="submit">Guardar Pago
+                type="submit">
+                    <FontAwesomeIcon icon={faSave} className="mr-2" />
+                    Guardar pago
                 </button>
                 </div>  
             </form>

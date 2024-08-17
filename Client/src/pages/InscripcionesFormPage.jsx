@@ -5,6 +5,8 @@ import { createInscripcion, deleteInscripcion, updateInscripcion, getInscripcion
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faSave } from "@fortawesome/free-solid-svg-icons";
 
 export function InscripcionesFormPage() {
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
@@ -55,8 +57,8 @@ export function InscripcionesFormPage() {
                 <PagosSelect register={register} errors={errors} />
 
                 <div className="felx items-center mb-4">
-                <label className="block text-blue-900 font-semibold">Factura</label>
-                <input type="checkbox" {...register("factura")} className="mr-2" />
+                    <label className="block text-blue-900 font-semibold">Factura</label>
+                    <input type="checkbox" {...register("factura")} className="mr-2" />
                 </div>
 
 
@@ -87,11 +89,15 @@ export function InscripcionesFormPage() {
                                     navigate("/inscripciones");
                                 }
                             }}
-                        >Delete</button>
-                        )}
+                        >
+                            <FontAwesomeIcon icon={faTrash} className="mr-2" />
+                            Eliminar inscripcion</button>
+                    )}
                     <button
-                    className="bg-blue-900 text-white p-2 rounded-lg w-48 ml-auto"
-                    >Guardar</button>
+                        className="bg-blue-900 text-white p-2 rounded-lg w-48 ml-auto"
+                    >
+                        <FontAwesomeIcon icon={faSave} className="mr-2" />
+                        Guardar inscripcion</button>
                 </div>
             </form>
         </div>

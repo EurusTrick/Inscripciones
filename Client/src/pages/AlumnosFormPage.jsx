@@ -3,6 +3,8 @@ import { createAlumno, deleteAlumno, updateAlumno, getAlumno } from "../api/alum
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faSave } from "@fortawesome/free-solid-svg-icons";
 
 export function AlumnosFormPage() {
   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
@@ -96,7 +98,8 @@ export function AlumnosFormPage() {
                 }
               }}
             >
-              Eliminar
+              <FontAwesomeIcon icon={faTrash} className="mr-2" />
+              Eliminar alumno
             </button>
           )}
 
@@ -104,7 +107,8 @@ export function AlumnosFormPage() {
             className="bg-blue-900 text-white p-2 rounded-lg w-48 ml-auto"
             type="submit"
           >
-            Guardar Alumno
+            <FontAwesomeIcon icon={faSave} className="mr-2" />
+            Guardar alumno
           </button>
         </div>
       </form>

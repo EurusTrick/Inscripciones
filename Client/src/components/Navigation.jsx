@@ -13,7 +13,7 @@ export function Navigation() {
                 </Link>
                 <Link to="/tutores" className="text-white flex flex-col items-center">
                     <FontAwesomeIcon icon={faUser} className="text-white mb-1" />
-                    Padres
+                    Padres/Tutores
                 </Link>
                 <Link to="/" className="text-white flex flex-col items-center">
                     <FontAwesomeIcon icon={faHome} className="text-white mb-1" />

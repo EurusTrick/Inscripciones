@@ -4,6 +4,8 @@ import { createTutor, deleteTutor, updateTutor, getTutor } from "../api/alumnos.
 import { useNavigate, useParams } from "react-router-dom";
 import { AlumnosSelect } from "../components/AlumnosSelect";
 import { toast } from "react-hot-toast";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faSave } from "@fortawesome/free-solid-svg-icons";
 
 export function TutoresFormPage() {
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
@@ -90,13 +92,15 @@ export function TutoresFormPage() {
                                 }
                             }}
                         >
-                            Eliminar
+                            <FontAwesomeIcon icon={faTrash} className="ml-2" /> 
+                            Eliminar padre/tutor
                         </button>
                     )}
                     <button
                         className="bg-blue-900 text-white p-2 rounded-lg w-48 ml-auto"
                         type="submit"
                     >
+                        <FontAwesomeIcon icon={faSave} className="ml-2"/>
                         Guardar Padre/Tutor
                     </button>
                 </div>
