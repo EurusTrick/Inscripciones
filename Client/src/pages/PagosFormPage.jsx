@@ -70,6 +70,7 @@ export function PagosFormPage() {
                 <div className="flex justify-between mt-4">
                 {params.id && (
                     <button
+                        type="button"
                         className="bg-red-500 text-white p-2 rounded-lg w-48"
                         onClick={async () => {
                             const acepted = window.confirm("¿Estás seguro de eliminar este pago?");
