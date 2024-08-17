@@ -9,7 +9,7 @@ export function PagosCard({ pago }) {
             navigate(`/pagos/${pago.id}`)
         }}
         >
-            <h1 className="text-xl font-semibold">{pago.alumno_details.nombre} {pago.alumno_details.apellidos}</h1>
+            <h1 className="text-xl font-semibold">{pago.alumno_details.apellidos} {pago.alumno_details.nombre}</h1>
             <p>Fecha de pago : {pago.fecha_pago}</p>
             <p>Monto : {pago.monto}</p>
         </div>

@@ -10,7 +10,7 @@ export function TutorCard({ tutor }) {
                 navigate(`/tutores/${tutor.id}`)
             }}
         >
-            <h1 className="text-xl front-semibold">{tutor.nombre} {tutor.apellidos}</h1>
+            <h1 className="text-xl font-semibold">{tutor.nombre} {tutor.apellidos}</h1>
             <p>Tutor de: {tutor.alumno_details.apellidos} {tutor.alumno_details.nombre}</p>
         </div>
     )

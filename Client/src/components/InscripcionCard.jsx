@@ -10,8 +10,8 @@ export function InscripcionCard({ inscripcion }) {
                 navigate(`/inscripciones/${inscripcion.id}`)}
         >
 
-            <h1 className="text-xl font-semibold">{inscripcion.alumno_details.nombre} {inscripcion.alumno_details.apellidos}</h1>
-            <p>{inscripcion.curso}</p>
+            <h1 className="text-xl font-semibold">{inscripcion.alumno_details.apellidos} {inscripcion.alumno_details.nombre} </h1>
+            <p>Curso: {inscripcion.curso}</p>
         </div>
     )
 }
